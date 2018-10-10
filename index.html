@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Class thoughts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <button id="reset">Reset</button>
+        <div class="voting-block">
+            <img id="up" src="images/thumbs-up.png" />
+            <img id="down" src="images/thumbs-down.png" />
+        </div>
+        <div class="results">
+            About <span id="score">100</span>% of the class feels good!
+        </div>
+    </div>
+    <script>
+        var good = 0, count = 0;
+
+        document.getElementById("up").addEventListener("click", function(){
+            count++;
+            good++;
+            document.getElementById("score").innerHTML = Math.floor(good / count * 100);
+            });
+        document.getElementById("down").addEventListener("click", function(){
+            count++;
+            document.getElementById("score").innerHTML = Math.floor(good / count * 100);
+            });
+        document.getElementById("reset").addEventListener("click", function(){
+            good = 0;
+            count = 0;
+            document.getElementById("score").innerHTML = "100";
+        })
+
+
+    </script>
+</body>
+</html>
